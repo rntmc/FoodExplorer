@@ -30,6 +30,11 @@ export function Add() {
 
   const navigate = useNavigate();
 
+  function handleReturn() {
+    navigate(-1)
+  }
+
+
   function handleAddIngredient() {
     setIngredients(prevState => [...prevState, newIngredient]);
     setNewIngredient("")
@@ -89,9 +94,7 @@ export function Add() {
   return (
     <Container>
       <Header/>
-        <Link to="/">
-          <ButtonText title="Voltar"/>
-        </Link>
+        <ButtonText title="Voltar" onClick={handleReturn}/>
         
         <Main>
           <h1>Adicionar prato</h1>

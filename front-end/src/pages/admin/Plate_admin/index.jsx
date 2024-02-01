@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { api } from '../../../services/api';
 import { FaPlus,FaMinus } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 import { Link, useParams } from 'react-router-dom';
 
@@ -15,6 +16,13 @@ import {Container, Display} from './styles';
 export function Plate_admin() {
   const { id } = useParams()
   const [plateInfo, setPlateInfo] = useState(null);
+  const [count, setCount] = useState(0)
+
+  const navigate = useNavigate()
+
+  function handleReturn() {
+    navigate(-1)
+  }
 
   useEffect(() => {
     async function fetchPlateInfo() {
@@ -35,9 +43,7 @@ export function Plate_admin() {
 
       <Header/>
 
-      <Link to="/">
-        <ButtonText title= "Voltar"/>
-      </Link>
+        <ButtonText title= "Voltar" onClick={handleReturn}/>
 
       <Display>
         {plateInfo && plateInfo.image && (
@@ -51,20 +57,12 @@ export function Plate_admin() {
             <Tag key={ingredient.id} title={ingredient.name} />
           ))}
 
-          <div className="bottom" >
-            <button className="subtract">
-              <FaMinus/>
-            </button>
-
-            <strong>01</strong>
-
-            <button className="add">
-              <FaPlus/>
-            </button>
-
-            <Button title="incluir . R$25,00"/>
+        <Link to={`/edit-dish/${id}`}>
+          <div className='button'>
+            <Button title="Editar prato"/>
           </div>
-          
+        </Link>
+        
         </div>
         </>
         )}

@@ -51,7 +51,7 @@ export function Home_admin(){
 
         <Banner/>
 
-        <Section2 title="Refeicoes">
+        <Section2 title="Refeições">
           <Links>
           {dishes &&
             dishes.map((dish) => {
@@ -114,11 +114,6 @@ export function Home_admin(){
               }
               return null;
             })}
-            {/* {
-              ingredients && ingredients.map(ingredient => (
-              <Card key={String(ingredient.id)} title={ingredient.name}/>
-              ))
-            } */}
           </Links>
         </Section2>
 

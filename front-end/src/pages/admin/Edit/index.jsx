@@ -30,6 +30,10 @@ export function Edit() {
   const params = useParams();
   const navigate = useNavigate();
 
+  function handleReturn() {
+    navigate(-1)
+  }
+
   function handleRemoveIngredient(deleted) {
     setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
   }
@@ -130,9 +134,7 @@ useEffect(() => {
     <Container>
       <Header/>
 
-        <Link to="/">
-          <ButtonText title="Voltar"/>
-        </Link>
+        <ButtonText title="Voltar" onClick={handleReturn}/>
         
         <Main>
           <h1>Editar prato</h1>

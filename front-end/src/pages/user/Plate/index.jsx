@@ -1,20 +1,28 @@
 import { useState, useEffect } from 'react';
-import { api } from '../../services/api';
+import { api } from '../../../services/api';
 import { FaPlus,FaMinus } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 import { Link, useParams } from 'react-router-dom';
 
-import { ButtonText } from '../../components/ButtonText';
-import { Footer } from '../../components/Footer';
-import { Header } from '../../components/Header';
-import { Tag } from '../../components/Tag';
-import { Button } from '../../components/Button';
+import { ButtonText } from '../../../components/ButtonText';
+import { Footer } from '../../../components/Footer';
+import { Header } from '../../../components/Header';
+import { Tag } from '../../../components/Tag';
+import { Button } from '../../../components/Button';
 
 import {Container, Display} from './styles';
 
-export function Plate() {
+export function Plate_admin() {
   const { id } = useParams()
   const [plateInfo, setPlateInfo] = useState(null);
+  const [count, setCount] = useState(0)
+
+  const navigate = useNavigate();
+
+  function handleReturn() {
+    navigate(-1)
+  }
 
   useEffect(() => {
     async function fetchPlateInfo() {
@@ -36,7 +44,7 @@ export function Plate() {
       <Header/>
 
       <Link to="/">
-        <ButtonText title= "Voltar"/>
+        <ButtonText title= "Voltar" onClick={handleReturn}/>
       </Link>
 
       <Display>
@@ -52,18 +60,18 @@ export function Plate() {
           ))}
 
           <div className="bottom" >
-            <button className="subtract">
+            <button className="subtract" onClick={() => setCount((count) => Math.max(count - 1, 0))}>
               <FaMinus/>
             </button>
 
-            <strong>01</strong>
+            <strong>{count}</strong>
 
-            <button className="add">
+            <button className="add" onClick={() => setCount((count) => count + 1)}>
               <FaPlus/>
             </button>
 
             <Button title="incluir . R$25,00"/>
-          </div>
+          </div>  
           
         </div>
         </>

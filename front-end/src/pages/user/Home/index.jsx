@@ -2,17 +2,17 @@ import { useState, useEffect } from "react";
 
 import { useNavigate} from "react-router-dom";
 
-import { api } from "../../services/api";
+import { api } from "../../../services/api";
 
 import { Container, Links, Main } from "./styles"
 
-import { Header } from "../../components/Header"
-import { Banner } from "../../components/Banner"
-import { Section2 } from "../../components/Section2"
-import { Card } from "../../components/Card"
-import { Footer } from "../../components/Footer"
+import { Header } from "../../../components/Header"
+import { Banner } from "../../../components/Banner"
+import { Section2 } from "../../../components/Section2"
+import { Card } from "../../../components/Card"
+import { Footer } from "../../../components/Footer"
 
-export function Home(){
+export function Home_admin(){
   const [ingredients, setIngredients] = useState([]);
 
   const [search, setSearch] = useState("");
@@ -51,7 +51,7 @@ export function Home(){
 
         <Banner/>
 
-        <Section2 title="Refeicoes">
+        <Section2 title="Refeições">
           <Links>
           {dishes &&
             dishes.map((dish) => {
