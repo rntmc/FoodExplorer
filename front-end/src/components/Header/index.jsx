@@ -1,9 +1,9 @@
 import { RxExit } from "react-icons/rx";
 import { BsFillHexagonFill } from "react-icons/bs";
 import { IoIosSearch } from "react-icons/io";
-import {useAuth} from "../../hooks/auth"
 
-import { Link } from 'react-router-dom';
+import {useAuth} from "../../hooks/auth"
+import { useNavigate, Link } from "react-router-dom";
 
 import { Button } from '../Button';
 import { Input } from '../Input';
@@ -12,6 +12,13 @@ import {Container, Logout, Profile} from './styles'
 
 export function Header({onChange, ...rest}) {
   const {signOut} = useAuth();
+
+  const navigate = useNavigate()
+
+  function handleSignOut() {
+    navigate("/")
+    signOut()
+  }
 
   return(
     <Container {...rest}>
@@ -33,11 +40,9 @@ export function Header({onChange, ...rest}) {
         <Button title="Novo prato"/>
       </Link>
 
-      <Link to="/">
-        <Logout onClick={signOut}>
-          <RxExit/>
-        </Logout>
-      </Link>
+      <Logout onClick={handleSignOut}>
+        <RxExit/>
+      </Logout>
 
     </Container>
   )
