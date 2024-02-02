@@ -8,6 +8,6 @@ const usersRoutes = Router();
 const usersController = new UsersController();
 
 usersRoutes.post("/", usersController.create);
-usersRoutes.put("/", ensureAuthenticated, usersController.update); //deltar, pois usuario nao sera atualizado
+// usersRoutes.put("/", ensureAuthenticated, usersController.update); //Nao necessaria
 
 module.exports = usersRoutes;
