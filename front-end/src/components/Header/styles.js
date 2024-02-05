@@ -18,6 +18,17 @@ export const Container = styled.header`
       margin-left: 50px;
     }
   }
+
+  .order-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    
+    > svg {
+      font-size: 26px;
+    }
+  }
 `;
 
 export const Logout = styled.button`

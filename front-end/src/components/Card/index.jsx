@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {useAuth} from "../../hooks/auth";
+import { useQuantity } from "../../contexts/quantityContext";
 import { Container, Icon, Plate, Count } from "./styles";
 import { MdFavoriteBorder, MdOutlineModeEdit, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { FaPlus, FaMinus } from "react-icons/fa";
@@ -8,13 +9,19 @@ import { Link } from "react-router-dom";
 import {Button} from "../Button"
 
 export function Card({title, description, price, image, id}) {
-  const [count, setCount] = useState(1);
-  
+  const [count, setCount] = useState(0);
+  const { incrementQuantity, setQuantityToZero } = useQuantity();
   const {user} = useAuth();
   const imageUrl = `http://localhost:3333/files/${image}`
 
-  console.log('user.role:', user.role);
-  console.log('title:', title);
+  const handleInclude = () => {
+    if (count > 0) {
+      incrementQuantity(id, count);
+      setCount(0);
+    } else {
+      setQuantityToZero(id);
+    }
+  };
 
   return(
     <Container>
@@ -62,7 +69,7 @@ export function Card({title, description, price, image, id}) {
               <FaPlus/>
             </button>
 
-            <Button title="incluir"/>
+            <Button title="incluir" onClick={handleInclude}/>
           </Count>
         )
       }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useQuantity } from '../../contexts/quantityContext';
 import { api } from '../../services/api';
 import { useAuth } from '../../hooks/auth';
 import { FaPlus,FaMinus } from "react-icons/fa";
@@ -17,10 +18,20 @@ import {Container, Display} from './styles';
 export function Plate() {
   const { id } = useParams()
   const [plateInfo, setPlateInfo] = useState(null);
+  const {incrementQuantity, setQuantityToZero} = useQuantity();
   const [count, setCount] = useState(0)
 
   const {user} = useAuth();
   const navigate = useNavigate()
+
+  const handleInclude = () => {
+    if (count > 0) {
+      incrementQuantity(id, count);
+      setCount(0);
+    } else {
+      setQuantityToZero(id);
+    }
+  };
 
   function handleReturn() {
     navigate(-1)
@@ -69,17 +80,17 @@ export function Plate() {
             </Link>
           ) : (
             <div className="bottom" >
-              <button className="subtract" onClick={() => setCount((count) => Math.max(count - 1, 0))}>
+              <button className="subtract" onClick={() => {setCount((count) => Math.max(count - 1, 0))}}>
                 <FaMinus/>
               </button>
 
               <strong>{count}</strong>
 
-              <button className="add" onClick={() => setCount((count) => count + 1)}>
+              <button className="add" onClick={() => {setCount((count) => count + 1)}}>
                 <FaPlus/>
               </button>
 
-              <Button title={`incluir ∙ R$ ${plateInfo.price}`}/>
+              <Button title={`incluir ∙ R$ ${plateInfo.price}`} onClick={handleInclude}/>
           </div>
           )
         }

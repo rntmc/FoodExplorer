@@ -1,8 +1,10 @@
 import { RxExit } from "react-icons/rx";
 import { BsFillHexagonFill } from "react-icons/bs";
+import { PiReceipt   } from "react-icons/pi";
 import { IoIosSearch } from "react-icons/io";
 
 import {useAuth} from "../../hooks/auth"
+import { useQuantity } from "../../contexts/quantityContext";
 import { useNavigate, Link } from "react-router-dom";
 
 import { Button } from '../Button';
@@ -12,6 +14,9 @@ import {Container, Logout, Profile} from './styles'
 
 export function Header({onChange, ...rest}) {
   const {signOut, user} = useAuth();
+  const { quantities } = useQuantity();
+
+  const totalQuantity = Object.values(quantities).reduce((total, quantity) => total + quantity, 0)
 
   const navigate = useNavigate()
 
@@ -44,7 +49,11 @@ export function Header({onChange, ...rest}) {
         </Link>
         ) : (
         <Link to="/pedidos">
-          <Button title="Pedidos"/>
+          <Button
+            className="order-button"
+            icon={PiReceipt}
+            title={`Pedidos (${totalQuantity})`}
+            />
         </Link>
         )
       }
