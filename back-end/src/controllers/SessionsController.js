@@ -27,6 +27,8 @@ class SessionsController {
       expiresIn
     })
 
+    delete user.password //removendo da resposta a senha
+
     return response.json({user, token})
   }
 }

@@ -35,7 +35,6 @@ export function Home(){
     async function fetchDishes() {
       try {
         const response = await api.get(`/dishes/index-dish?title=${search}`);
-        console.log('Response from API:', response.data);
         setDishes(response.data);
       } catch (error) {
         console.error('Error fetching dishes:', error);
