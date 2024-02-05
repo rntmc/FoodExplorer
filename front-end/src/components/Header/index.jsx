@@ -11,7 +11,7 @@ import { Input } from '../Input';
 import {Container, Logout, Profile} from './styles'
 
 export function Header({onChange, ...rest}) {
-  const {signOut} = useAuth();
+  const {signOut, user} = useAuth();
 
   const navigate = useNavigate()
 
@@ -26,7 +26,7 @@ export function Header({onChange, ...rest}) {
         <BsFillHexagonFill/>
         <div>
           <span>food explorer</span>
-          <strong>Admin</strong>
+          <strong>{user.role}</strong>
         </div>
       </Profile>
     
@@ -36,9 +36,18 @@ export function Header({onChange, ...rest}) {
         placeholder="Busque por pratos ou ingredientes"
       />
 
-      <Link to="/add-dish">
-        <Button title="Novo prato"/>
-      </Link>
+      {
+        user.role === "admin" ?
+        (
+        <Link to="/add-dish">
+          <Button title="Novo prato"/>
+        </Link>
+        ) : (
+        <Link to="/pedidos">
+          <Button title="Pedidos"/>
+        </Link>
+        )
+      }
 
       <Logout onClick={handleSignOut}>
         <RxExit/>

@@ -34,10 +34,44 @@ export const Display = styled.div`
     margin-bottom: 24px;
   }
 
+  > div .bottom {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 48px;
+    gap: 14px;
+
+    > svg {
+      font-size: 30px;
+    }
+
+    > strong {
+      font-family: ${({ theme }) => theme.FONTS.ROBOTO_BIG_BOLD};
+    }
+
+    &:last-child {
+      width: 320px;
+    }
+
+    .subtract, .add {
+    font-size: 18px;
+    color: ${({theme}) => theme.COLORS.LIGHT_100};
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: transparent;
+    border: 0;
+    }
+
+    .add {
+      margin-right: 16px;
+    }
+  }
+
   > div .button {
     margin-top: 48px;
     display: flex;
     width: 130px;
-
     }
 `;

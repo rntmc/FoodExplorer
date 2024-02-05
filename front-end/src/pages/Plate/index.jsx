@@ -1,23 +1,25 @@
 import { useState, useEffect } from 'react';
-import { api } from '../../../services/api';
+import { api } from '../../services/api';
+import { useAuth } from '../../hooks/auth';
 import { FaPlus,FaMinus } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
 import { Link, useParams } from 'react-router-dom';
 
-import { ButtonText } from '../../../components/ButtonText';
-import { Footer } from '../../../components/Footer';
-import { Header } from '../../../components/Header';
-import { Tag } from '../../../components/Tag';
-import { Button } from '../../../components/Button';
+import { ButtonText } from '../../components/ButtonText';
+import { Footer } from '../../components/Footer';
+import { Header } from '../../components/Header';
+import { Tag } from '../../components/Tag';
+import { Button } from '../../components/Button';
 
 import {Container, Display} from './styles';
 
-export function Plate_admin() {
+export function Plate() {
   const { id } = useParams()
   const [plateInfo, setPlateInfo] = useState(null);
   const [count, setCount] = useState(0)
 
+  const {user} = useAuth();
   const navigate = useNavigate()
 
   function handleReturn() {
@@ -57,12 +59,30 @@ export function Plate_admin() {
             <Tag key={ingredient.id} title={ingredient.name} />
           ))}
 
-        <Link to={`/edit-dish/${id}`}>
-          <div className='button'>
-            <Button title="Editar prato"/>
+        {
+          user.role === "admin" ? 
+          (
+            <Link to={`/edit-dish/${id}`}>
+              <div className='button'>
+                <Button title="Editar prato"/>
+              </div>
+            </Link>
+          ) : (
+            <div className="bottom" >
+              <button className="subtract" onClick={() => setCount((count) => Math.max(count - 1, 0))}>
+                <FaMinus/>
+              </button>
+
+              <strong>{count}</strong>
+
+              <button className="add" onClick={() => setCount((count) => count + 1)}>
+                <FaPlus/>
+              </button>
+
+              <Button title={`incluir ∙ R$ ${plateInfo.price}`}/>
           </div>
-        </Link>
-        
+          )
+        }
         </div>
         </>
         )}

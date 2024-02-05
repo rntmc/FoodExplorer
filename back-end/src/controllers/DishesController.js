@@ -50,40 +50,43 @@ class DishesController {
   }
 
   async index(request, response) {
-    const {title, ingredients} = request.query;
-    const user_id = request.user.id;
-
-    let dishes;
-
-    if(ingredients){
-      const filterIngredients = ingredients.split(',').map(ingredient => ingredient.trim());
-      
-      dishes = await knex("ingredients")
-        .select(["dishes.id", "dishes.title", /*"dishes.description", "dishes.price",*/ "dishes.user_id"])
-        .where("dishes.user_id", user_id)
-        .whereLike("dishes.title", `%${title}%`)
-        .whereIn("name", filterIngredients)
-        .innerJoin("dishes", "dishes.id", "ingredients.dish_id")
-        .orderBy("dishes.title")
-
-    } else {
-      dishes = await knex("dishes")
-        .where({user_id })
-        .whereLike("title", `%${title}%`)
-        .orderBy("title");
-    }
-
-    const userIngredients = await knex("ingredients").where({user_id});
-    const dishesWithIngredients = dishes.map(dish => {
-      const dishIngredients = userIngredients.filter(ingredient => ingredient.dish_id === dish.id).map(ingredient => ingredient.name)
-
-      return {
-        ...dish,
-        ingredients: dishIngredients
+    try {
+      const { title, ingredients } = request.query;
+  
+      let query = knex("dishes");
+  
+      if (ingredients) {
+        const filterIngredients = ingredients.split(',').map(ingredient => ingredient.trim());
+  
+        query = query
+          .select(["dishes.id", "dishes.title"])
+          .whereLike("dishes.title", `%${title}%`)
+          .whereIn("name", filterIngredients)
+          .innerJoin("ingredients", "dishes.id", "ingredients.dish_id")
+          .orderBy("dishes.title");
+      } else {
+        query = query
+          .select()
+          .whereLike("title", `%${title}%`)
+          .orderBy("title");
       }
-    })
-
-    return response.json(dishesWithIngredients)
+  
+      const dishes = await query;
+      const userIngredients = await knex("ingredients"); // Removido o filtro por user_id
+  
+      const dishesWithIngredients = dishes.map(dish => {
+        const dishIngredients = userIngredients
+          .filter(ingredient => ingredient.dish_id === dish.id)
+          .map(ingredient => ingredient.name);
+  
+        return { ...dish, ingredients: dishIngredients };
+      });
+  
+      return response.json(dishesWithIngredients);
+    } catch (error) {
+      console.error("Error fetching dishes:", error);
+      return response.status(500).json({ error: "Internal server error" });
+    }
   }
 
   async update(request, response){

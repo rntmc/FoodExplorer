@@ -15,7 +15,7 @@ const dishImageController = new DishImageController();
 
 dishesRoutes.use(ensureAuthenticated);
 
-dishesRoutes.post("/add-dish", verifyUserAuthorization("admin"), dishesController.create);//
+dishesRoutes.post("/add-dish", verifyUserAuthorization("admin"), dishesController.create);
 dishesRoutes.put("/edit-dish/:id", verifyUserAuthorization("admin"), dishesController.update)
 dishesRoutes.patch("/update-dish-image/:id", verifyUserAuthorization("admin"), upload.single("image"), dishImageController.create)
 dishesRoutes.delete("/delete-dish/:id", verifyUserAuthorization("admin"), dishesController.delete);

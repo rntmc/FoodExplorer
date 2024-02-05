@@ -1,21 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { api } from '../../../services/api';
+import { api } from '../../services/api';
 
 import {Container, Main} from './styles'
-import { Link } from 'react-router-dom';
 
-import { Header } from '../../../components/Header';
-import {Footer} from '../../../components/Footer'
-import {ButtonText} from '../../../components/ButtonText'
-import {FileField} from '../../../components/FileField'
-import {TextField} from '../../../components/TextField'
-import {DropDownField} from '../../../components/DropDownField'
-import {TextArea} from '../../../components/TextArea'
-import {Button} from '../../../components/Button'
-import {Section} from '../../../components/Section'
-import {TagItem} from '../../../components/TagItem'
+import { Header } from '../../components/Header';
+import {Footer} from '../../components/Footer'
+import {ButtonText} from '../../components/ButtonText'
+import {FileField} from '../../components/FileField'
+import {TextField} from '../../components/TextField'
+import {DropDownField} from '../../components/DropDownField'
+import {TextArea} from '../../components/TextArea'
+import {Button} from '../../components/Button'
+import {Section} from '../../components/Section'
+import {TagItem} from '../../components/TagItem'
 
 export function Edit() {
   const [ingredients, setIngredients] = useState([]);

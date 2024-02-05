@@ -65,6 +65,7 @@ export const Profile = styled.div`
       color: ${({theme}) => theme.COLORS.CAKE_200};
       font-family: ${({ theme }) => theme.FONTS.ROBOTO_SMALLEST_REGULAR};
       align-self: flex-end;
+      text-transform: capitalize;
     }
   }
 `;

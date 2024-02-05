@@ -1,20 +1,18 @@
 import { useState, useEffect } from "react";
-
 import { useNavigate} from "react-router-dom";
 
-import { api } from "../../../services/api";
+import { api } from "../../services/api";
 
 import { Container, Links, Main } from "./styles"
 
-import { Header } from "../../../components/Header"
-import { Banner } from "../../../components/Banner"
-import { Section2 } from "../../../components/Section2"
-import { Card } from "../../../components/Card"
-import { Footer } from "../../../components/Footer"
+import { Header } from "../../components/Header"
+import { Banner } from "../../components/Banner"
+import { Section2 } from "../../components/Section2"
+import { Card } from "../../components/Card"
+import { Footer } from "../../components/Footer"
 
-export function Home_admin(){
+export function Home(){
   const [ingredients, setIngredients] = useState([]);
-
   const [search, setSearch] = useState("");
   const [dishes, setDishes] = useState("")
 
@@ -35,9 +33,13 @@ export function Home_admin(){
 
   useEffect(() => {
     async function fetchDishes() {
-      const response = await api.get(`/dishes/index-dish?title=${search}`)
-      setDishes(response.data);
-      console.log(response.data);
+      try {
+        const response = await api.get(`/dishes/index-dish?title=${search}`);
+        console.log('Response from API:', response.data);
+        setDishes(response.data);
+      } catch (error) {
+        console.error('Error fetching dishes:', error);
+      }
     }
 
     fetchDishes()
