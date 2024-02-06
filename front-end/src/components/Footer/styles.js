@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
+  bottom: 0;
   height: 76px;
   width: 100%;
 
@@ -9,8 +10,8 @@ export const Container = styled.footer`
   align-items: center;
 
   padding: 24px 124px;
-
   background-color: ${({theme}) => theme.COLORS.DARK_600};
+  margin-top: 48px;
 
   > div {
     display: flex;

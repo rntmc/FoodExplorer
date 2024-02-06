@@ -13,7 +13,7 @@ import { Header } from '../../components/Header';
 import { Tag } from '../../components/Tag';
 import { Button } from '../../components/Button';
 
-import {Container, Display} from './styles';
+import {Container, Display, Main} from './styles';
 
 export function Plate() {
   const { id } = useParams()
@@ -56,48 +56,53 @@ export function Plate() {
 
       <Header/>
 
+      <Main>
+        
         <ButtonText title= "Voltar" onClick={handleReturn}/>
 
-      <Display>
-        {plateInfo && plateInfo.image && (
-        <>
-        <img src={`http://localhost:3333/files/${plateInfo.image}`} alt={plateInfo.title}/>
+        <Display>
+          {plateInfo && plateInfo.image && (
+          <>
+          <img src={`http://localhost:3333/files/${plateInfo.image}`} alt={plateInfo.title}/>
 
-        <div className='top'>
-          <h2>{plateInfo.title}</h2>
-          <h3>{plateInfo.description}</h3>
-          {plateInfo.ingredients && plateInfo.ingredients.map((ingredient) => (
-            <Tag key={ingredient.id} title={ingredient.name} />
-          ))}
+          <div className='top'>
+            <h2>{plateInfo.title}</h2>
+            <h3>{plateInfo.description}</h3>
+            {plateInfo.ingredients && plateInfo.ingredients.map((ingredient) => (
+              <Tag key={ingredient.id} title={ingredient.name} />
+            ))}
 
-        {
-          user.role === "admin" ? 
-          (
-            <Link to={`/edit-dish/${id}`}>
-              <div className='button'>
-                <Button title="Editar prato"/>
-              </div>
-            </Link>
-          ) : (
-            <div className="bottom" >
-              <button className="subtract" onClick={() => {setCount((count) => Math.max(count - 1, 0))}}>
-                <FaMinus/>
-              </button>
+          {
+            user.role === "admin" ? 
+            (
+              <Link to={`/edit-dish/${id}`}>
+                <div className='button'>
+                  <Button title="Editar prato"/>
+                </div>
+              </Link>
+            ) : (
+              <div className="bottom" >
+                <button className="subtract" onClick={() => {setCount((count) => Math.max(count - 1, 0))}}>
+                  <FaMinus/>
+                </button>
 
-              <strong>{count}</strong>
+                <strong>{count}</strong>
 
-              <button className="add" onClick={() => {setCount((count) => count + 1)}}>
-                <FaPlus/>
-              </button>
+                <button className="add" onClick={() => {setCount((count) => count + 1)}}>
+                  <FaPlus/>
+                </button>
 
-              <Button title={`incluir ∙ R$ ${plateInfo.price}`} onClick={handleInclude}/>
+                <Button title={`incluir ∙ R$ ${plateInfo.price}`} onClick={handleInclude}/>
+            </div>
+            )
+          }
           </div>
-          )
-        }
-        </div>
-        </>
-        )}
-      </Display>
+          </>
+          )}
+        </Display>
+
+      </Main>
+
 
       <Footer/>
 

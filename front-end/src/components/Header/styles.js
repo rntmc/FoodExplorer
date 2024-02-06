@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.header`
   height: 104px;
@@ -28,6 +29,10 @@ export const Container = styled.header`
     > svg {
       font-size: 26px;
     }
+  }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}){
+
   }
 `;
 

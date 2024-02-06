@@ -2,7 +2,8 @@ import { useState } from "react";
 import {useAuth} from "../../hooks/auth";
 import { useQuantity } from "../../contexts/quantityContext";
 import { Container, Icon, Plate, Count } from "./styles";
-import { MdFavoriteBorder, MdOutlineModeEdit, MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { MdFavoriteBorder, MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { PiPencilSimpleLight } from "react-icons/pi";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -30,7 +31,7 @@ export function Card({title, description, price, image, id}) {
           user.role === "admin" ? 
           (
             <Link to={`/edit-dish/${id}`}>
-              <MdOutlineModeEdit/>
+              <PiPencilSimpleLight />
             </Link>
           ) : (
             <Link to={`/orders`}>
@@ -40,14 +41,15 @@ export function Card({title, description, price, image, id}) {
         }
       </Icon>
 
-      <Plate>
+      <Plate hasCount={user.role !== "admin"}>
         <img src={imageUrl} alt={title}/>
-
+        
         <div className="title">
           <Link to={`/dish/${id}`}>
-            <h1>{title}</h1>
+            <strong>
+              {title} &gt;
+            </strong>
           </Link>
-            <MdOutlineKeyboardArrowRight  />
         </div>
 
         <p>{description}</p>

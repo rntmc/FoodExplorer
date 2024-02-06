@@ -8,6 +8,7 @@ export const Container = styled.div`
 export const Display = styled.div`
   display: grid;
   grid-template-columns: 500px auto;
+  align-items: center;
   padding: 0 120px;
   margin-top: 36px;
   margin-bottom: 40px;
@@ -23,7 +24,6 @@ export const Display = styled.div`
     font-weight:500;
     font-size: 40px;
     margin-bottom: 24px;
-    margin-top: 30px;
   }
 
   > div h3 {
@@ -74,4 +74,9 @@ export const Display = styled.div`
     display: flex;
     width: 130px;
     }
+`;
+
+export const Main = styled.div`
+  overflow-y: auto;
+  margin-bottom: 7px;
 `;

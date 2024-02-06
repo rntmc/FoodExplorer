@@ -48,10 +48,9 @@ export function Home(){
     <Container>
       <Header onChange ={(e) => setSearch(e.target.value)}/>
     
+      <Banner/>
+
       <Main>
-
-        <Banner/>
-
         <Section2 title="Refeições">
           <Links>
           {dishes &&
@@ -117,7 +116,6 @@ export function Home(){
             })}
           </Links>
         </Section2>
-
       </Main>
  
       <Footer/>
