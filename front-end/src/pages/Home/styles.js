@@ -7,7 +7,7 @@ export const Container = styled.div`
 
   display: grid;
   grid-template-rows: 104px 406px auto 77px;
-  grid-area:
+  grid-template-areas:
   "header"
   "banner"
   "content"
@@ -15,26 +15,29 @@ export const Container = styled.div`
   background-color: ${({theme}) => theme.COLORS.DARK_400};
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    grid-template-columns: auto;
-    grid-template-rows: 114px auto 77px;
+    width:100%;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 120px 1fr auto;
 
     grid-template-areas:
     "header"
-    "main"
+    "banner"
+    "content"
     "footer"
   }
 `;
 export const Main = styled.div`
   grid-area:"content";
+  width:100%;
 `;
 
 export const Links = styled.div`
-  overflow-y: auto;
+  width: 100%;
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: start;
-  gap: 28px;
+  gap: 1.75rem;
 
   > li {
     a {

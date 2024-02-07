@@ -2,6 +2,7 @@ import { RxExit } from "react-icons/rx";
 import { BsFillHexagonFill } from "react-icons/bs";
 import { PiReceipt   } from "react-icons/pi";
 import { IoIosSearch } from "react-icons/io";
+import {List} from "@phosphor-icons/react"
 
 import {useAuth} from "../../hooks/auth"
 import { useQuantity } from "../../contexts/quantityContext";
@@ -10,7 +11,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { Button } from '../Button';
 import { Input } from '../Input';
 
-import {Container, Logout, Profile} from './styles'
+import {Container, Logout, Profile, Menu} from './styles'
 
 export function Header({onChange, ...rest}) {
   const {signOut, user} = useAuth();
@@ -27,6 +28,11 @@ export function Header({onChange, ...rest}) {
 
   return(
     <Container {...rest}>
+      {/* <Menu>
+        <List/>
+      </Menu> */}
+
+
       <Profile>
         <BsFillHexagonFill/>
         <div>
