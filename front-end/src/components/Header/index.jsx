@@ -10,10 +10,11 @@ import { useNavigate, Link } from "react-router-dom";
 
 import { Button } from '../Button';
 import { Input } from '../Input';
+import {SideMenu} from '../SideMenu'
 
-import {Container, Logout, Profile, Menu} from './styles'
+import {Container, Logout, Profile, Menu, OrderSummary} from './styles'
 
-export function Header({onChange, ...rest}) {
+export function Header({onChange, onOpenMenu, ...rest}) {
   const {signOut, user} = useAuth();
   const { quantities } = useQuantity();
 
@@ -28,12 +29,13 @@ export function Header({onChange, ...rest}) {
 
   return(
     <Container {...rest}>
-      {/* <Menu>
+
+      <Menu onClick={onOpenMenu}>
         <List/>
-      </Menu> */}
+      </Menu>
 
 
-      <Profile>
+       <Profile>
         <BsFillHexagonFill/>
         <div>
           <span>food explorer</span>
@@ -42,16 +44,22 @@ export function Header({onChange, ...rest}) {
       </Profile>
     
       <Input
+        className="top-input"
         onChange={onChange}
         icon={IoIosSearch}
         placeholder="Busque por pratos ou ingredientes"
       />
 
+      <OrderSummary>
+        <PiReceipt/>
+        <p>{totalQuantity}</p>
+      </OrderSummary>
+
       {
         user.role === "admin" ?
         (
         <Link to="/add-dish">
-          <Button title="Novo prato"/>
+          <Button title="Novo prato" className="top-button"/>
         </Link>
         ) : (
         <Link to="/pedidos">
