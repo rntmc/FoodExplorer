@@ -30,6 +30,7 @@ export const Container = styled.footer`
       font-size: 1.5rem;
       color: ${({theme}) => theme.COLORS.LIGHT_700};
       font-family: ${({ theme }) => theme.FONTS.ROBOTO_BIGGER_BOLD.fontFamily};
+      font-weight:bold;
     }
   }
 
