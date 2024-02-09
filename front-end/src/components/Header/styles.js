@@ -20,7 +20,7 @@ export const Container = styled.header`
     display: grid;
     grid-template-columns: 30px auto 30px;
     align-items: center;
-    padding: 1.5rem 2.3rem;
+    padding: 2.3rem 2.3rem;
   }
 
   .top-input {
@@ -57,7 +57,6 @@ export const Container = styled.header`
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}){
     height: 7.125rem;
     width: 100%;
-    /* padding: 1.5rem 2.2rem; */
   }
 `;
 
@@ -96,28 +95,37 @@ export const Profile = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
+      display:flex;
+      flex-direction:row;
+      gap: 0.5rem;
+    }
     
     > span {
       font-size: 1.5rem;
       color: ${({theme}) => theme.COLORS.LIGHT_100};
-      font-family: ${({ theme }) => theme.FONTS.ROBOTO_BIGGER_BOLD};
+      font-family: ${({ theme }) => theme.FONTS.ROBOTO_BIGGER_BOLD.fontFamily};
+
+      @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
+        align-items:center;
+      }
     }
     
+    .user {
+      display:none;
+    }
     > strong {
       font-size: 0.75rem;
       color: ${({theme}) => theme.COLORS.CAKE_200};
-      font-family: ${({ theme }) => theme.FONTS.ROBOTO_SMALLEST_REGULAR};
+      font-family: ${({ theme }) => theme.FONTS.ROBOTO_SMALLEST_REGULAR.fontFamily};
       align-self: flex-end;
       text-transform: capitalize;
-
       @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
-      display: none;
-      align-items: center;
-      justify-content: center;
+        align-self:center;
       }
     }
   }
-
 `;
 
 export const Menu = styled.button`
@@ -143,7 +151,7 @@ export const OrderSummary = styled.button`
     border:none;
     background-color: transparent;
     color: ${({theme}) => theme.COLORS.LIGHT_100};
-    font-size: 32px;
+    font-size: 2.4rem;
     display: flex;
     align-items:center;
     justify-content:center;

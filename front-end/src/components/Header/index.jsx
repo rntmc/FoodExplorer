@@ -10,7 +10,6 @@ import { useNavigate, Link } from "react-router-dom";
 
 import { Button } from '../Button';
 import { Input } from '../Input';
-import {SideMenu} from '../SideMenu'
 
 import {Container, Logout, Profile, Menu, OrderSummary} from './styles'
 
@@ -39,7 +38,7 @@ export function Header({onChange, onOpenMenu, ...rest}) {
         <BsFillHexagonFill/>
         <div>
           <span>food explorer</span>
-          <strong>{user.role}</strong>
+          <strong className={user.role === "user" ? "user" : ""}>{user.role}</strong>
         </div>
       </Profile>
     
@@ -50,10 +49,17 @@ export function Header({onChange, onOpenMenu, ...rest}) {
         placeholder="Busque por pratos ou ingredientes"
       />
 
-      <OrderSummary>
-        <PiReceipt/>
-        <p>{totalQuantity}</p>
-      </OrderSummary>
+      {
+        user.role === "user" ?
+        (
+        <OrderSummary>
+          <PiReceipt/>
+          <p>{totalQuantity}</p>
+        </OrderSummary>
+        ) : (
+          ""
+        )
+      }
 
       {
         user.role === "admin" ?

@@ -93,52 +93,49 @@ export function Add() {
   return (
     <Container>
       <Header/>
-        <ButtonText title="Voltar" onClick={handleReturn}/>
+      <ButtonText title="Voltar" onClick={handleReturn} className="buttontext"/>
         
-        <Main>
-          <h1>Adicionar prato</h1>
+      <Main>
+        <h1>Adicionar prato</h1>
 
-          <div className='top'>
-            <FileField title="Imagem do prato" onChange={(e) => setImage(e.target.files[0])} />
-            <TextField title="Nome" placeholder="Exemplo: Salada Ceasar" value={title} onChange={e=>setTitle(e.target.value)}/>
-            <DropDownField title="Categoria" value={category} onChange={e=>setCategory(e.target.value)}/>
-          </div>
-
-          <div className='center'>
-            <Section title="Ingredientes">
-              <div className="tags">
-                {
-                  ingredients.map((ingredient, index) => (
-                    <TagItem 
-                      key={String(index)}
-                      value={ingredient}
-                      onClick={() => {handleRemoveIngredient(ingredient)}}
-                    />
-                  ))
-                }
-
-                <TagItem 
-                  isNew
-                  placeholder="adicionar"
-                  onChange={e => setNewIngredient(e.target.value)}
-                  value={newIngredient}
-                  onClick={handleAddIngredient}
-                />
-              </div>
-            </Section>
-            <TextField placeholder="R$ 00,00" title="Preço" value={price} onChange={e=>setPrice(e.target.value)}/>
-          </div>
-
-          <TextArea title="Descrição" placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" value={description} onChange={e=>setDescription(e.target.value)}/>
-          
-        <div className='bottom'>
-          <Button 
-            title="Salvar alterações" 
-            onClick={handleNewDish}
-          />
+        <div className='top'>
+          <FileField title="Imagem do prato" onChange={(e) => setImage(e.target.files[0])} />
+          <TextField title="Nome" placeholder="Exemplo: Salada Ceasar" value={title} onChange={e=>setTitle(e.target.value)}/>
+          <DropDownField title="Categoria" value={category} onChange={e=>setCategory(e.target.value)}/>
         </div>
 
-        </Main>
+        <div className='center'>
+          <Section title="Ingredientes" className="ingredients">
+            <div className="tags">
+              {
+                ingredients.map((ingredient, index) => (
+                  <TagItem 
+                    key={String(index)}
+                    value={ingredient}
+                    onClick={() => {handleRemoveIngredient(ingredient)}}
+                  />
+                ))
+              }
+
+              <TagItem 
+                isNew
+                placeholder="adicionar"
+                onChange={e => setNewIngredient(e.target.value)}
+                value={newIngredient}
+                onClick={handleAddIngredient}
+              />
+            </div>
+          </Section>
+          <TextField placeholder="R$ 00,00" title="Preço" value={price} onChange={e=>setPrice(e.target.value)}/>
+        </div>
+
+        <TextArea title="Descrição" placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" value={description} onChange={e=>setDescription(e.target.value)} className="textarea"/>
+
+        <div className='bottom'>
+          <Button title="Salvar alterações" onClick={handleNewDish}/>
+        </div>
+
+      </Main>
 
       <Footer/>
     </Container>

@@ -74,7 +74,8 @@ export const Plate = styled.div`
 
   > span {
     margin-top: 1rem;
-    font-family: ${({ theme }) => theme.FONTS.ROBOTO_BIGGEST_REGULAR};
+    font-family: ${({ theme }) => theme.FONTS.ROBOTO_BIGGEST_REGULAR.fontFamily};
+    font-size:2rem;
     color: ${({theme}) => theme.COLORS.CAKE_200};
   }
 `;
@@ -101,6 +102,6 @@ export const Count = styled.div`
   > strong {
     font-size: 1.25rem;
     color: ${({theme}) => theme.COLORS.LIGHT_300};
-    font-family: ${({ theme }) => theme.FONTS.ROBOTO_BIG_BOLD};
+    font-family: ${({ theme }) => theme.FONTS.ROBOTO_BIG_BOLD.fontFamily};
   }
 `;

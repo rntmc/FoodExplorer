@@ -49,5 +49,10 @@ export default {
     ROBOTO_BIGGER_BOLD: {fontFamily: 'Roboto', fontSize: '24px', fontWeight: 'Bold' },
     ROBOTO_BIGGEST_REGULAR: {fontFamily: 'Roboto', fontSize: '32px', fontWeight: 'Regular' },
     ROBOTO_GIANT_BOLD: {fontFamily: 'Roboto', fontSize: '42px', fontWeight: 'Bold' },
-  }
+  },
+
+  TEXTS: {
+    BIG_SCREEN_PLACEHOLDER: "incluir",
+    SMALL_SCREEN_PLACEHOLDER: "pedir",
+  },
 };

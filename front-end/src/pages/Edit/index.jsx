@@ -145,7 +145,7 @@ useEffect(() => {
           </div>
 
           <div className='center'>
-            <Section title="Ingredientes">
+            <Section title="Ingredientes" className="ingredients">
               <div className='tags'>
               {ingredients.map((ingredient, index) => (
                 <TagItem

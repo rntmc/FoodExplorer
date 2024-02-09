@@ -29,13 +29,13 @@ export const Container = styled.footer`
     > span {
       font-size: 1.5rem;
       color: ${({theme}) => theme.COLORS.LIGHT_700};
-      font-family: ${({ theme }) => theme.FONTS.ROBOTO_BIGGER_BOLD};
+      font-family: ${({ theme }) => theme.FONTS.ROBOTO_BIGGER_BOLD.fontFamily};
     }
   }
 
   > p {
     font-size: 0.875rem;
     color: ${({theme}) => theme.COLORS.LIGHT_200};
-    font-family: ${({ theme }) => theme.FONTS.ROBOTO_SMALLER_REGULAR};
+    font-family: ${({ theme }) => theme.FONTS.ROBOTO_SMALLER_REGULAR.fontFamily};
   }
 `;

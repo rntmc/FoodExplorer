@@ -7,11 +7,11 @@ export const Container = styled.section`
   justify-content: center;
 
   > h2 {
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 
-    font-family: ${({ theme }) => theme.FONTS.ROBOTO_SMALL_REGULAR};
+    font-family: ${({ theme }) => theme.FONTS.ROBOTO_SMALL_REGULAR.fontFamily};
     font-weight: 400;
-    font-size: 16px;
-    color: ${({theme}) => theme.COLORS.LIGHT_300};
+    font-size: 1.25rem;
+    color: ${({theme}) => theme.COLORS.LIGHT_400};
   }
 `;
