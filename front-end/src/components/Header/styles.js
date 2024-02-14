@@ -106,6 +106,7 @@ export const Profile = styled.div`
       font-size: 1.5rem;
       color: ${({theme}) => theme.COLORS.LIGHT_100};
       font-family: ${({ theme }) => theme.FONTS.ROBOTO_BIGGER_BOLD.fontFamily};
+      font-weight:bold;
 
       @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
         align-items:center;
@@ -123,6 +124,7 @@ export const Profile = styled.div`
       text-transform: capitalize;
       @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
         align-self:center;
+        font-size: 1rem;
       }
     }
   }

@@ -3,7 +3,6 @@ import { PiUploadSimple } from "react-icons/pi";
 
 export function FileField({title, onChange, ...rest}) {
 
-
   return (
     <Container>
       <h2>{title}</h2>

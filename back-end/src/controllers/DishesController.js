@@ -6,6 +6,14 @@ class DishesController {
     const {title, description, category, price, ingredients} = request.body;
     const user_id = request.user.id;
 
+    const existingDish = await knex("dishes")
+    .where({title})
+    .first()
+    
+    if(existingDish) {
+      throw new AppError("Prato já cadastrado. Por gentileza cadastre um novo.");
+    }
+
     const [dish_id] = await knex("dishes").insert({ 
       title, 
       description,

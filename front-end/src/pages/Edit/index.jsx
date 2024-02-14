@@ -107,8 +107,7 @@ useEffect(() => {
     try {
       const response = await api.get(`/dishes/show-dish/${params.id}`);
       const dishDetails = response.data;
-      console.log(dishDetails);
-
+      console.log("Detalhes do prato:", dishDetails);
       setTitle(dishDetails.title);
       setDescription(dishDetails.description);
       setCategory(dishDetails.category);
@@ -122,7 +121,7 @@ useEffect(() => {
         setImage(dishDetails.image);
       }
     } catch (error) {
-      console.error('Error fetching dish details:', error.message);
+      console.error('Erro ao buscar dados do prato:', error.message);
     }
   }
 

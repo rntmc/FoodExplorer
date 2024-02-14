@@ -35,6 +35,7 @@ export const Container = styled.div`
         min-width:14%;
         max-width:15%;
         opacity: 0;
+        z-index:1;
 
         @media(max-width:${DEVICE_BREAKPOINTS.MD}){
         background-color:red;

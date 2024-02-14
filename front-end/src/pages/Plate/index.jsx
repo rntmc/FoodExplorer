@@ -47,7 +47,7 @@ export function Plate() {
     async function fetchPlateInfo() {
       try {
         const response = await api.get(`/dishes/show-dish/${id}`);
-        console.log('Plate info:', response.data);
+        console.log('Detalhes do prato:', response.data);
         setPlateInfo(response.data);
       } catch (error) {
         console.error('Erro ao mostrar prato:', error);
@@ -72,7 +72,7 @@ export function Plate() {
         const response = await api.get(`/dishes/index-dish?title=${search}`);
         setDishes(response.data);
       } catch (error) {
-        console.error('Error fetching dishes:', error);
+        console.error('Erro ao buscar prato:', error);
       }
     }
 
