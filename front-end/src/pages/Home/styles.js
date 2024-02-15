@@ -25,23 +25,17 @@ export const Container = styled.div`
     "content"
     "footer"
   }
-`;
-export const Main = styled.div`
-  grid-area:"content";
-  width:100%;
-`;
 
-export const Links = styled.div`
-  width: 100%;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  gap: 1.75rem;
+  >main {
+    padding:0 7.75rem;
+    max-width:100vw;
 
-  > li {
-    a {
-      color: ${({theme}) => theme.COLORS.LIGHT_100};
+    @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
+      padding:0 2.2rem;
+      max-width:100vw;
     }
+
+
   }
 `;
+

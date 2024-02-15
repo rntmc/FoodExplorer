@@ -2,15 +2,18 @@ import styled from "styled-components";
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
-  max-width: 25%;
-  width: 100%;
-  height: 28.8rem;
+  width: 19rem;
+  height: 28.875rem;
   background-color: ${({theme}) => theme.COLORS.DARK_200};
   border-radius: 8px;
   position: relative;
 
   @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
-    max-width: 100%;
+    width: 17.5rem;
+    height: 24.3rem;
+    background-color: ${({theme}) => theme.COLORS.DARK_200};
+    border-radius: 8px;
+    position: relative;
   }
 `;
 
@@ -57,6 +60,10 @@ export const Plate = styled.div`
       -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
+        font-family:${({ theme }) => theme.FONTS.POPPINS_100_MEDIUM.fontFamily};
+        font-size: 1rem;
+      }
     }
   }
 
@@ -71,6 +78,9 @@ export const Plate = styled.div`
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
+      display:none;
+    }
   }
 
   > span {
@@ -78,6 +88,7 @@ export const Plate = styled.div`
     font-family: ${({ theme }) => theme.FONTS.ROBOTO_BIGGEST_REGULAR.fontFamily};
     font-size:2rem;
     color: ${({theme}) => theme.COLORS.CAKE_200};
+    
   }
 `;
 

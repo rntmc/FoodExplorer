@@ -1,9 +1,17 @@
 import { useState, useEffect } from "react";
 import { useNavigate} from "react-router-dom";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 
 import { api } from "../../services/api";
 
-import { Container, Links, Main } from "./styles"
+import { Container } from "./styles"
 
 import { Header } from "../../components/Header"
 import { Banner } from "../../components/Banner"
@@ -46,6 +54,23 @@ export function Home(){
     fetchDishes()
   }, [search, ingredients])
 
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 425,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll:2,
+          },
+      },
+    ]
+  };
+
   return(
     <Container>
 
@@ -59,17 +84,17 @@ export function Home(){
 
       <Banner />
 
-      <Main>
+      <main>
         {dishes &&
           <>
             {dishes.some(dish => dish.category === "Refeição") && (
               <Section2 title="Refeições">
-                <Links>
-                  {dishes.map((dish) => {
-                    if (dish.category === "Refeição") {
-                      return (
+                <Splide options={{ perPage: 4, gap: '1rem' }}>
+                  {dishes
+                    .filter(dish => dish.category === "Refeição")
+                    .map(dish => (
+                      <SplideSlide key={String(dish.id)}>
                         <Card
-                          key={String(dish.id)}
                           title={dish.title}
                           description={dish.description}
                           price={dish.price}
@@ -77,22 +102,20 @@ export function Home(){
                           id={dish.id}
                           onClick={() => handlePlate(dish.id)}
                         />
-                      );
-                    }
-                    return null;
-                  })}
-                </Links>
+                      </SplideSlide>
+                    ))}
+                </Splide>
               </Section2>
             )}
 
             {dishes.some(dish => dish.category === "Sobremesa") && (
               <Section2 title="Sobremesas">
-                <Links>
-                  {dishes.map((dish) => {
-                    if (dish.category === "Sobremesa") {
-                      return (
+                <Splide options={{ perPage: 4, gap: '1rem' }}>
+                  {dishes
+                    .filter(dish => dish.category === "Sobremesa")
+                    .map(dish => (
+                      <SplideSlide key={String(dish.id)}>
                         <Card
-                          key={String(dish.id)}
                           title={dish.title}
                           description={dish.description}
                           price={dish.price}
@@ -100,22 +123,20 @@ export function Home(){
                           id={dish.id}
                           onClick={() => handlePlate(dish.id)}
                         />
-                      );
-                    }
-                    return null;
-                  })}
-                </Links>
+                      </SplideSlide>
+                    ))}
+                </Splide>
               </Section2>
             )}
 
             {dishes.some(dish => dish.category === "Bebida") && (
               <Section2 title="Bebidas">
-                <Links>
-                  {dishes.map((dish) => {
-                    if (dish.category === "Bebida") {
-                      return (
+                <Splide options={{ perPage: 4, gap: '1rem' }}>
+                  {dishes
+                    .filter(dish => dish.category === "Bebida")
+                    .map(dish => (
+                      <SplideSlide key={String(dish.id)}>
                         <Card
-                          key={String(dish.id)}
                           title={dish.title}
                           description={dish.description}
                           price={dish.price}
@@ -123,16 +144,14 @@ export function Home(){
                           id={dish.id}
                           onClick={() => handlePlate(dish.id)}
                         />
-                      );
-                    }
-                    return null;
-                  })}
-                </Links>
+                      </SplideSlide>
+                    ))}
+                </Splide>
               </Section2>
             )}
           </>
         }
-      </Main>
+      </main>
  
       <Footer/>
     </Container>

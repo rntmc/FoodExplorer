@@ -19,7 +19,7 @@ export const Container = styled.div`
     height: 120px;
     border-radius: 8px;
     padding: 1.5rem 1.6rem;
-    margin: 4rem 2.3rem ;
+    margin: 3rem 2.3rem ;
   }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.SM}){

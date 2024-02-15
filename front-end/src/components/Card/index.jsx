@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 import {Button} from "../Button"
 
-export function Card({title, description, price, image, id}) {
+export function Card({title, description, price, image, id, className}) {
   const [count, setCount] = useState(0);
   const { incrementQuantity, setQuantityToZero } = useQuantity();
   const {user} = useAuth();
@@ -25,7 +25,7 @@ export function Card({title, description, price, image, id}) {
   };
 
   return(
-    <Container>
+    <Container className={className}>
       <Icon>
         {
           user.role === "admin" ? 
