@@ -2,15 +2,15 @@ import styled from "styled-components";
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
-  width: 19rem;
-  height: 28.875rem;
+  width: 304px;
+  height: 462px;
   background-color: ${({theme}) => theme.COLORS.DARK_200};
   border-radius: 8px;
   position: relative;
 
   @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
-    width: 17.5rem;
-    height: 24.3rem;
+    width: 210px;
+    height: 292px;
     background-color: ${({theme}) => theme.COLORS.DARK_200};
     border-radius: 8px;
     position: relative;

@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate} from "react-router-dom";
-import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 import { api } from "../../services/api";
 
@@ -54,22 +50,7 @@ export function Home(){
     fetchDishes()
   }, [search, ingredients])
 
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 425,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll:2,
-          },
-      },
-    ]
-  };
+
 
   return(
     <Container>
@@ -89,12 +70,13 @@ export function Home(){
           <>
             {dishes.some(dish => dish.category === "Refeição") && (
               <Section2 title="Refeições">
-                <Splide options={{ perPage: 4, gap: '1rem' }}>
+                <Splide options={{ perPage: 4}}>
                   {dishes
                     .filter(dish => dish.category === "Refeição")
                     .map(dish => (
-                      <SplideSlide key={String(dish.id)}>
+                      <SplideSlide key={String(dish.id)} >
                         <Card
+                          className="card"
                           title={dish.title}
                           description={dish.description}
                           price={dish.price}

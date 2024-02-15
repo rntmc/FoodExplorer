@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
+
 export const Container = styled.div`
   width:100%;
   height: 100vh;
@@ -26,7 +27,7 @@ export const Container = styled.div`
     "footer"
   }
 
-  >main {
+  > main {
     padding:0 7.75rem;
     max-width:100vw;
 
@@ -34,8 +35,6 @@ export const Container = styled.div`
       padding:0 2.2rem;
       max-width:100vw;
     }
-
-
   }
 `;
 
