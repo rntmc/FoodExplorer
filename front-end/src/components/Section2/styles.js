@@ -2,6 +2,15 @@ import styled from "styled-components";
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.section`
+  display:flex;
+  flex-direction:column;
+  width:1300px;
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}){
+    display:flex;
+    flex-direction:column;
+    width:760px;
+    }
 
   > h2 {
     margin-bottom: 1.5rem;

@@ -4,7 +4,7 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 export const Container = styled.div`
   height: 100vh;
   width: 100vw;
-
+  padding: 0 8.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  margin-right: 8.75rem;
+
   background-color: ${({theme}) => theme.COLORS.DARK_700};
   border-radius: 16px;
   padding: 4rem;
@@ -92,7 +92,7 @@ export const Logo = styled.div`
   }
 
   > svg {
-    font-size: 3.125rem;
+    font-size: 2.6rem;
     color: ${({theme}) => theme.COLORS.CAKE_100};
   }
 

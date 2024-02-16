@@ -3,7 +3,6 @@ import { useNavigate} from "react-router-dom";
 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 import { api } from "../../services/api";
 
@@ -92,7 +91,7 @@ export function Home(){
 
             {dishes.some(dish => dish.category === "Sobremesa") && (
               <Section2 title="Sobremesas">
-                <Splide options={{ perPage: 4, gap: '1rem' }}>
+                <Splide options={{ perPage: 4 }}>
                   {dishes
                     .filter(dish => dish.category === "Sobremesa")
                     .map(dish => (
@@ -113,7 +112,7 @@ export function Home(){
 
             {dishes.some(dish => dish.category === "Bebida") && (
               <Section2 title="Bebidas">
-                <Splide options={{ perPage: 4, gap: '1rem' }}>
+                <Splide options={{ perPage: 4}}>
                   {dishes
                     .filter(dish => dish.category === "Bebida")
                     .map(dish => (

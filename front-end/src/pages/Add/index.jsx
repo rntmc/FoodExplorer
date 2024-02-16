@@ -70,6 +70,7 @@ export function Add() {
         api.patch(`dishes/update-dish-image/${dishId}`, fileImage)
           .then(() => {
             alert("Prato criado com sucesso!");
+            console.log(response.data)
             navigate("/");
             console.log(response)
           })

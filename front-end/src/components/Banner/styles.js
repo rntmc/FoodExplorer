@@ -10,6 +10,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
 
+
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}){
     position: relative;
     display: grid;
@@ -40,6 +41,7 @@ export const Container = styled.div`
     text-align: left;
     margin-left: auto; 
     padding-right: 6.25rem;
+    padding-left:32rem;
 
     @media (max-width: ${DEVICE_BREAKPOINTS.MD}){
       padding-left: 12rem;

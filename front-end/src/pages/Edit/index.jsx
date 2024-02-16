@@ -43,7 +43,7 @@ export function Edit() {
   }
 
   async function handleEditDish() {
-    if(!title || !description || !category || !price || !image || ingredients.length === 0) {
+    if(!title || !description || !category || !price || ingredients.length === 0) {
       return alert("Favor preencher todos os campos obrigatórios") 
     }
     
