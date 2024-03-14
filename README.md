@@ -26,7 +26,7 @@ O projeto está estruturado em frontend e backend. A seguir, são detalhadas as 
   - build: Constrói a versão de produção.
   - lint: Executa o ESLint para garantir a qualidade do código.
   - preview: Visualiza a versão de produção localmente.
-Dependências:
+* Dependências:
   - react: ^18.2.0
   - react-dom: ^18.2.0
   - react-icons: ^5.0.1
@@ -42,7 +42,7 @@ Dependências:
   - dev: Inicia o servidor com o nodemon para desenvolvimento.
   - migrate: Executa as migrações do banco de dados.
   - test: Executa os testes automatizados com Jest.
-Dependências:
+* Dependências:
     - bcryptjs: ^2.4.3
     - cors: ^2.8.5
     - dotenv: ^16.4.5
