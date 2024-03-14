@@ -22,37 +22,37 @@ O projeto está estruturado em frontend e backend. A seguir, são detalhadas as 
 * Tecnologias: React, React Router Dom, Styled Components, Axios.
 * Principais pacotes: @phosphor-icons/react, @splidejs/react-splide.
 * Scripts disponíveis:
-  dev: Inicia o servidor de desenvolvimento.
-  build: Constrói a versão de produção.
-  lint: Executa o ESLint para garantir a qualidade do código.
-  preview: Visualiza a versão de produção localmente.
+  - dev: Inicia o servidor de desenvolvimento.
+  - build: Constrói a versão de produção.
+  - lint: Executa o ESLint para garantir a qualidade do código.
+  - preview: Visualiza a versão de produção localmente.
 Dependências:
-  react: ^18.2.0
-  react-dom: ^18.2.0
-  react-icons: ^5.0.1
-  react-router-dom: ^6.21.2
-  styled-components: ^6.1.6
-  axios: ^1.6.5
+  - react: ^18.2.0
+  - react-dom: ^18.2.0
+  - react-icons: ^5.0.1
+  - react-router-dom: ^6.21.2
+  - styled-components: ^6.1.6
+  - axios: ^1.6.5
 
 ### Backend:
-Tecnologias: Node.js, Express, SQLite, Knex, JWT.
-Principais pacotes: bcryptjs, cors, dotenv, jsonwebtoken, multer.
-Scripts disponíveis:
-  start: Inicia o servidor.
-  dev: Inicia o servidor com o nodemon para desenvolvimento.
-  migrate: Executa as migrações do banco de dados.
-  test: Executa os testes automatizados com Jest.
+* Tecnologias: Node.js, Express, SQLite, Knex, JWT.
+* Principais pacotes: bcryptjs, cors, dotenv, jsonwebtoken, multer.
+* Scripts disponíveis:
+  - start: Inicia o servidor.
+  - dev: Inicia o servidor com o nodemon para desenvolvimento.
+  - migrate: Executa as migrações do banco de dados.
+  - test: Executa os testes automatizados com Jest.
 Dependências:
-    bcryptjs: ^2.4.3
-    cors: ^2.8.5
-    dotenv: ^16.4.5
-    express: ^4.18.2
-    express-async-errors: ^3.1.1
-    jsonwebtoken: ^9.0.2
-    knex: ^3.1.0
-    multer: ^1.4.5-lts.1
-    sqlite: ^5.1.1
-    sqlite3: ^5.1.7-rc.0
+    - bcryptjs: ^2.4.3
+    - cors: ^2.8.5
+    - dotenv: ^16.4.5
+    - express: ^4.18.2
+    - express-async-errors: ^3.1.1
+    - jsonwebtoken: ^9.0.2
+    - knex: ^3.1.0
+    - multer: ^1.4.5-lts.1
+    - sqlite: ^5.1.1
+    - sqlite3: ^5.1.7-rc.0
 
 ## Deploy
 - Frontend: O deploy foi realizado utilizando o Netlify. Link do Deploy: [https://main--exploringfood.netlify.app/]
