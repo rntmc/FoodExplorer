@@ -13,8 +13,8 @@ function AuthProvider({ children }){
       const response = await api.post("/sessions", {email, password});
       const {user, token} = response.data
 
-      localStorage.setItem("@foodexplorer: user", JSON.stringify(user)); //salvar infos no localstorage
-      localStorage.setItem("@foodexplorer: token", token);
+      localStorage.setItem("@foodexplorer:user", JSON.stringify(user)); //salvar infos no localstorage
+      localStorage.setItem("@foodexplorer:token", token);
 
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`; //Inserir um token na requisicao
       setData({user, token})
@@ -30,15 +30,15 @@ function AuthProvider({ children }){
 
   function signOut(){  
 
-    localStorage.removeItem("@foodexplorer: token");
-    localStorage.removeItem("@foodexplorer: user");
+    localStorage.removeItem("@foodexplorer:token");
+    localStorage.removeItem("@foodexplorer:user");
 
     setData({});
   }
 
   useEffect(() => { //buscar info no localstorage
-    const token = localStorage.getItem("@foodexplorer: token");
-    const user = localStorage.getItem("@foodexplorer: user");
+    const token = localStorage.getItem("@foodexplorer:token");
+    const user = localStorage.getItem("@foodexplorer:user");
 
     if(token && user) {
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
