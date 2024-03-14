@@ -1,4 +1,4 @@
-### Food Explorer
+# Food Explorer
 
 Food Explorer é um projeto que visa fornecer uma plataforma para restaurantes gerenciarem seus pratos e para os usuários encontrarem informações detalhadas sobre esses pratos. A aplicação possui duas personas principais: o admin, responsável pelo restaurante, e o usuário, que busca informações sobre os pratos disponíveis.
 Funcionalidades
@@ -18,7 +18,7 @@ Para o Usuário:
 
 O projeto está estruturado em frontend e backend. A seguir, são detalhadas as principais tecnologias utilizadas em cada um:
 
-# Frontend:
+### Frontend:
 Tecnologias: React, React Router Dom, Styled Components, Axios.
 Principais pacotes: @phosphor-icons/react, @splidejs/react-splide.
 Scripts disponíveis:
@@ -34,7 +34,7 @@ Dependências:
   styled-components: ^6.1.6
   axios: ^1.6.5
 
-# Backend:
+### Backend:
 Tecnologias: Node.js, Express, SQLite, Knex, JWT.
 Principais pacotes: bcryptjs, cors, dotenv, jsonwebtoken, multer.
 Scripts disponíveis:
