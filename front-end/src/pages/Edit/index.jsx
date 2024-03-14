@@ -66,19 +66,11 @@ export function Edit() {
         const fileImage = new FormData();
         fileImage.append("image", image);
   
-        api.patch(`dishes/update-dish-image/${dishId}`, fileImage)
-          .then(() => {
-            alert("Prato atualizado com sucesso!");
-            navigate("/");
-            console.log(response)
-          })
-          .catch((error) => {
-            console.error("Erro ao enviar imagem:", error.message);
-          });
-      } else {
-        alert("Prato atualizado com sucesso!");
-        navigate("/");
+        await api.patch(`dishes/update-dish-image/${dishId}`, fileImage)
       }
+      
+      alert("Prato atualizado com sucesso!");
+      navigate("/");
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
