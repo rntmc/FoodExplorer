@@ -56,15 +56,15 @@ Dependências:
 
 ## Instruções para Execução
 Frontend:
-  Clone o repositório e navegue até a pasta do frontend.
-  Execute `npm install` para instalar as dependências.
-  Execute `npm run dev` para iniciar o servidor de desenvolvimento.
-  Acesse a aplicação na porta criada.
+  - Clone o repositório e navegue até a pasta do frontend.
+  - Execute `npm install` para instalar as dependências.
+  - Execute `npm run dev` para iniciar o servidor de desenvolvimento.
+  - Acesse a aplicação na porta criada.
 
 Backend:
-  Clone o repositório e navegue até a pasta do backend.
-  Execute `npm install` para instalar as dependências.
-  Execute `npm run dev` para iniciar o servidor com o nodemon para desenvolvimento.
+  - Clone o repositório e navegue até a pasta do backend.
+  - Execute `npm install` para instalar as dependências.
+  - Execute `npm run dev` para iniciar o servidor com o nodemon para desenvolvimento.
 
 Deploy
   Frontend: O deploy foi realizado utilizando o Netlify. Link do Deploy: [https://main--exploringfood.netlify.app/]
