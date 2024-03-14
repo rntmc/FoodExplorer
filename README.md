@@ -67,8 +67,8 @@ Backend:
   - Execute `npm run dev` para iniciar o servidor com o nodemon para desenvolvimento.
 
 Deploy
-  Frontend: O deploy foi realizado utilizando o Netlify. Link do Deploy: [https://main--exploringfood.netlify.app/]
-  Backend: O deploy foi realizado utilizando o Render. Link do Deploy: [https://foodexplorer-m3nx.onrender.com]
+  - Frontend: O deploy foi realizado utilizando o Netlify. Link do Deploy: [https://main--exploringfood.netlify.app/]
+  - Backend: O deploy foi realizado utilizando o Render. Link do Deploy: [https://foodexplorer-m3nx.onrender.com]
 
 ## Considerações Finais
 O projeto Food Explorer é uma aplicação completa que oferece funcionalidades robustas para administração de restaurantes e busca de informações para os usuários. A estrutura do projeto foi cuidadosamente planejada e implementada, seguindo as melhores práticas de desenvolvimento de software.
