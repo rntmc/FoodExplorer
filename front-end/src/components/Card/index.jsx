@@ -14,7 +14,7 @@ export function Card({title, description, price, image, id, className}) {
   const { incrementQuantity, setQuantityToZero } = useQuantity();
   const {user} = useAuth();
   const serverUrl = "https://foodexplorer-m3nx.onrender.com"
-  const imageUrl = `http://${serverUrl}/files/${image}`
+  const imageUrl = `${serverUrl}/files/${image}`
 
   const handleInclude = () => {
     if (count > 0) {
