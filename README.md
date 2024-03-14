@@ -19,9 +19,9 @@ Para o Usuário:
 O projeto está estruturado em frontend e backend. A seguir, são detalhadas as principais tecnologias utilizadas em cada um:
 
 ### Frontend:
-#### Tecnologias: React, React Router Dom, Styled Components, Axios.####
-Principais pacotes: @phosphor-icons/react, @splidejs/react-splide.
-Scripts disponíveis:
+* Tecnologias: React, React Router Dom, Styled Components, Axios.
+* Principais pacotes: @phosphor-icons/react, @splidejs/react-splide.
+* Scripts disponíveis:
   dev: Inicia o servidor de desenvolvimento.
   build: Constrói a versão de produção.
   lint: Executa o ESLint para garantir a qualidade do código.
