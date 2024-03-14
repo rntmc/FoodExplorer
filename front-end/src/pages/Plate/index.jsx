@@ -30,6 +30,8 @@ export function Plate() {
   const {user} = useAuth();
   const navigate = useNavigate()
 
+  const serverUrl = "https://foodexplorer-m3nx.onrender.com"
+
   const handleInclude = () => {
     if (count > 0) {
       incrementQuantity(id, count);
@@ -97,7 +99,7 @@ export function Plate() {
         <Display>
           {plateInfo && plateInfo.image && (
           <>
-          <img src={`http://localhost:3333/files/${plateInfo.image}`} alt={plateInfo.title}/>
+          <img src={`${serverUrl}/files/${plateInfo.image}`} alt={plateInfo.title}/>
 
           <div className='top'>
             <h2>{plateInfo.title}</h2>
